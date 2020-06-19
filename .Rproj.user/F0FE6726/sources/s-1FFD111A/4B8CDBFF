@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592571998706.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4B8CDBFF",
+    "lastKnownWriteTime" : 1592572141,
+    "last_content_update" : 1592572141523,
+    "path" : "C:/Users/sest/Desktop/r Packages/ggIBPlot/ggIBPplot/R/geom_fraunhofer_label.R",
+    "project_path" : "R/geom_fraunhofer_label.R",
+    "properties" : {
+        "cursorPosition" : "18,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

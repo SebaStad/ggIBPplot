@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1592568449392.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3293084181",
+    "id" : "ADD28340",
+    "lastKnownWriteTime" : 1592568473,
+    "last_content_update" : 1592568473944,
+    "path" : "C:/Users/sest/Desktop/r Packages/ggIBPlot/ggIBPplot/data-raw/DATASET.R",
+    "project_path" : "data-raw/DATASET.R",
+    "properties" : {
+        "cursorPosition" : "4,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,18 @@
+#' Title
+#'
+#' @param ...
+#' @param angle
+#' @param hjust
+#' @param vjust
+#' @param x_pos
+#' @param y_pos
+#'
+#' @return
+#' @export
+#'
+#' @examples
+geom_fraunhofer_label <- function(..., angle = 90, hjust = 0, vjust = -0.5, x_pos = 1, y_pos = -1){
+  geom_text(data = data.frame("label"= "  © Fraunhofer IBP", stringsAsFactors = F),
+            aes(label = label, x = x_pos * Inf, y = y_pos * Inf), angle = angle,
+            hjust = hjust, vjust = vjust, fontface = "bold",...)
+}
