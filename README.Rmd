@@ -56,7 +56,7 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7) +
+  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12) +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
@@ -88,7 +88,7 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, aspect = 5/9.5) +
+  theme_ibp(y_pos_leg = 0.65, aspect = 5/9.5) +
   scale_x_ibp_cont(limits = c(32,60), n = 8) +
   scale_y_ibp_cont(limits = c(12.5,22)) +
   scale_colour_ibp() +
