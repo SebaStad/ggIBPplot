@@ -10,7 +10,7 @@ ibp_cols$ppoint <- prismatic::color(rgb(c(23, 242, 31, 226, 177, 254, 225),
   maxColorValue = 255
 ))
 
-ibp_ppoint <- prismatic::color(ibp_cols$PPoint)
+ibp_ppoint <- prismatic::color(ibp_cols$ppoint)
 usethis::use_data(ibp_ppoint, overwrite = TRUE)
 
 
