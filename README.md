@@ -126,7 +126,59 @@ ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
 
 <img src="man/figures/README-another-2.png" width="100%" />
 
-Es gibt auch `scale_x_ibp_date`, allerdings ungetestet.
+Es gibt auch `scale_x_ibp_date`:
+
+``` r
+dat <- tibble::tibble("rndvalue" = runif(40, min = 10, max = 30),
+                          "date" = rep(seq(as.Date("2020-06-01"), as.Date("2020-06-20"), length.out = 20),2),
+                          "ts" = c(rep("1",20), rep("2", 20)),
+                          stringsAsFactors = F)
+
+ggplot(dat , aes(y = rndvalue, x = date)) + 
+  geom_line(aes(color = ts)) +
+  # Wichtig:
+  # Ich selber habe hier Fehlermeldungen bekommen, wenn ich color = ts in den ggplot aes gesteckt habe
+  # und Gleichzeitig geom_fraunhofer_label_date verweden hab.
+  theme_ibp() + 
+  scale_x_ibp_date() +
+  scale_y_ibp_cont() +
+  scale_colour_ibp(values = ibp_cols$all[4:5]) +
+  geom_fraunhofer_label_date() +
+  coord_fixed() 
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+```
+
+<img src="man/figures/README-ts-1.png" width="100%" />
+
+``` r
+
+
+dat2 <- tibble::tibble("rndvalue" = runif(40, min = 10, max = 30),
+                          "date" = rep(seq(as.POSIXct("2020-06-01"),as.POSIXct("2020-06-10"), length.out = 20),2),
+                          "ts" = c(rep("1",20), rep("2", 20)),
+                          stringsAsFactors = F)
+
+ggplot(dat2 , aes(y = rndvalue, x = date)) + 
+  geom_line(aes(color = ts)) +
+  # Wichtig:
+  # Ich selber habe hier Fehlermeldungen bekommen, wenn ich color = ts in den ggplot aes gesteckt habe
+  # und Gleichzeitig geom_fraunhofer_label_date verweden hab.
+  theme_ibp(aspect = 1) + 
+  scale_x_ibp_datetime(n = 5) +
+  scale_y_ibp_cont() +
+  scale_colour_ibp(values = ibp_cols$all[4:5]) +
+  geom_fraunhofer_label_datetime() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_fixed() 
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+```
+
+<img src="man/figures/README-ts-2.png" width="100%" />
 
 Beeinhaltet auch einige Farben aus der IBP CI, sowie die Farbskalen von
 Matthias aus dem Base `IBPplot` package. `ppoint` Sind die Farben aus
