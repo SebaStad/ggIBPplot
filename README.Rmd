@@ -91,16 +91,19 @@ ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
   theme_ibp(y_pos_leg = 0.65, aspect = 5/9.5) +
   scale_x_ibp_cont(limits = c(32,60), n = 8) +
   scale_y_ibp_cont(limits = c(12.5,22)) +
-  scale_colour_ibp() +
+  scale_colour_ibp(values = ibp_cols$old[4:6]) +
   geom_fraunhofer_label() +
   coord_fixed()
 }
 ```
 
 Es gibt auch ```scale_x_ibp_date```, allerdings ungetestet.
-Beeinhaltet auch einige Farben aus der IBP CI.
+
+Beeinhaltet auch einige Farben aus der IBP CI, sowie die Farbskalen von Matthias aus dem Base ```IBPplot``` package. ```ppoint``` Sind die Farben aus der aktuellen Powerpoint-Vorlage.
 
 ```{r cols}
-prismatic::color(ibp_cols) %>% 
-  plot()
+names(ibp_cols)
+par(mfrow = c(2,5))
+lapply(ibp_cols, prismatic:::plot.colors)
+
 ```

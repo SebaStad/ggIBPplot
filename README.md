@@ -28,6 +28,7 @@ library(ggplot2)
 library(ggIBPplot)
 library(magrittr)
 library(scales)
+#> Warning: package 'scales' was built under R version 3.6.2
 ## basic example code
 palmerpenguins::penguins %>% 
   na.exclude() %>% 
@@ -41,7 +42,6 @@ ggplot(data = ., aes(x=species)) +
   geom_fraunhofer_label() 
 }
 #> Warning in pretty.default(x, n, ...): NAs durch Umwandlung erzeugt
-
 #> Warning in pretty.default(x, n, ...): NAs durch Umwandlung erzeugt
 #> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
@@ -116,7 +116,7 @@ ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
   theme_ibp(y_pos_leg = 0.65, aspect = 5/9.5) +
   scale_x_ibp_cont(limits = c(32,60), n = 8) +
   scale_y_ibp_cont(limits = c(12.5,22)) +
-  scale_colour_ibp() +
+  scale_colour_ibp(values = ibp_cols$old[4:6]) +
   geom_fraunhofer_label() +
   coord_fixed()
 }
@@ -126,12 +126,48 @@ ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
 
 <img src="man/figures/README-another-2.png" width="100%" />
 
-Es gibt auch `scale_x_ibp_date`, allerdings ungetestet. Beeinhaltet auch
-einige Farben aus der IBP CI.
+Es gibt auch `scale_x_ibp_date`, allerdings ungetestet.
+
+Beeinhaltet auch einige Farben aus der IBP CI, sowie die Farbskalen von
+Matthias aus dem Base `IBPplot` package. `ppoint` Sind die Farben aus
+der aktuellen Powerpoint-Vorlage.
 
 ``` r
-prismatic::color(ibp_cols) %>% 
-  plot()
+names(ibp_cols)
+#>  [1] "ppoint"   "all"      "logo"     "grey"     "orange"   "blue"    
+#>  [7] "green"    "tuer"     "old"      "old_matt"
+par(mfrow = c(2,5))
+lapply(ibp_cols, prismatic:::plot.colors)
 ```
 
 <img src="man/figures/README-cols-1.png" width="100%" />
+
+    #> $ppoint
+    #> NULL
+    #> 
+    #> $all
+    #> NULL
+    #> 
+    #> $logo
+    #> NULL
+    #> 
+    #> $grey
+    #> NULL
+    #> 
+    #> $orange
+    #> NULL
+    #> 
+    #> $blue
+    #> NULL
+    #> 
+    #> $green
+    #> NULL
+    #> 
+    #> $tuer
+    #> NULL
+    #> 
+    #> $old
+    #> NULL
+    #> 
+    #> $old_matt
+    #> NULL
