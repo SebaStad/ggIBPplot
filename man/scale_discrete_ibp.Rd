@@ -4,7 +4,7 @@
 \alias{scale_discrete_ibp}
 \title{Title}
 \usage{
-scale_discrete_ibp(..., values = ibp_cols)
+scale_discrete_ibp(..., values = ibp_cols$ppoint)
 }
 \arguments{
 \item{values}{}

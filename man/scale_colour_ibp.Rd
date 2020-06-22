@@ -4,7 +4,7 @@
 \alias{scale_colour_ibp}
 \title{Title}
 \usage{
-scale_colour_ibp(..., values = ibp_cols)
+scale_colour_ibp(..., values = ibp_cols$ppoint)
 }
 \arguments{
 \item{values}{}

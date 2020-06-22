@@ -10,7 +10,8 @@ theme_ibp(
   base_line_size = base_size/170,
   base_rect_size = base_size/170,
   x_pos_leg = 0.1,
-  y_pos_leg = 0.85
+  y_pos_leg = 0.85,
+  aspect = 5.5/8
 )
 }
 \arguments{

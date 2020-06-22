@@ -4,7 +4,7 @@
 \alias{equal_breaks}
 \title{Title}
 \usage{
-equal_breaks(n = 3, s = 0.05, ...)
+equal_breaks(n = 3, s = 0.05, manual = NULL, remove_border = FALSE, ...)
 }
 \arguments{
 \item{x}{}

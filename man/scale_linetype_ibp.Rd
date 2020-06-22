@@ -4,7 +4,7 @@
 \alias{scale_linetype_ibp}
 \title{Title}
 \usage{
-scale_linetype_ibp(..., values = ibp_cols)
+scale_linetype_ibp(..., values = ibp_cols$ppoint)
 }
 \arguments{
 \item{values}{}

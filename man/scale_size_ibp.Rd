@@ -4,7 +4,7 @@
 \alias{scale_size_ibp}
 \title{Title}
 \usage{
-scale_size_ibp(..., values = ibp_cols)
+scale_size_ibp(..., values = ibp_cols$ppoint)
 }
 \arguments{
 \item{values}{}
