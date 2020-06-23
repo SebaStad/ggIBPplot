@@ -9,10 +9,13 @@
 #' @export
 #'
 #' @examples
-scale_x_ibp_cont <- function(n = 7, limits = NULL, remove_border_val = FALSE, ...) {
+scale_x_ibp_cont <- function(n = 7, limits = NULL, remove_border_val = FALSE,
+                             leading = 2, ...) {
   if (is.null(limits)) {
     ggplot2::scale_x_continuous(breaks = equal_breaks(n = n, s = 0,
-                                             remove_border_val = remove_border_val),
+                                             remove_border_val = remove_border_val,
+                                             leading = leading),
+                                limits = equal_breaks_limits(n, leading = 2),
                        expand = c(0, 0), ...)
   } else {
     ggplot2::scale_x_continuous(

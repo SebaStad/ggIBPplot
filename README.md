@@ -91,13 +91,12 @@ palmerpenguins::penguins %>%
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
   theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5) +
-  scale_x_ibp_cont(limits = c(170,230)) +
-  scale_y_ibp_cont(limits = c(2500,6500)) +
+  scale_x_ibp_cont() +
+  scale_y_ibp_cont() +
   scale_colour_ibp() +
   geom_fraunhofer_label() +
   coord_fixed()
 }
-#> Warning: Removed 1 rows containing missing values (geom_point).
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 
