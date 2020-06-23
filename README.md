@@ -29,6 +29,8 @@ library(ggIBPplot)
 library(magrittr)
 library(scales)
 #> Warning: package 'scales' was built under R version 3.6.2
+library(prismatic)
+#> Warning: package 'prismatic' was built under R version 3.6.2
 ## basic example code
 palmerpenguins::penguins %>% 
   na.exclude() %>% 
@@ -167,8 +169,8 @@ ggplot(dat2 , aes(y = rndvalue, x = date)) +
   # Wichtig:
   # Ich selber habe hier Fehlermeldungen bekommen, wenn ich color = ts in den ggplot aes gesteckt habe
   # und Gleichzeitig geom_fraunhofer_label_date verweden hab.
-  theme_ibp(aspect = 1) + 
-  scale_x_ibp_datetime(n = 5) +
+  theme_ibp(aspect = 5/8.5) + 
+  scale_x_ibp_datetime(n = 8) +
   scale_y_ibp_cont() +
   scale_colour_ibp(values = ibp_cols$all[4:5]) +
   geom_fraunhofer_label_datetime() +
