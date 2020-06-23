@@ -13,8 +13,8 @@
 #' @examples
 geom_fraunhofer_label_date <- function(..., angle = 90, hjust = -0.05, vjust = -0.5, x_pos = 1, y_pos = -1) {
   ggplot2::geom_text(
-    data = data.frame("label" = "© Fraunhofer IBP", stringsAsFactors = F), mapping =
-    aes(label = label, x = structure(x_pos*Inf, class = "Date"), y = y_pos * Inf), angle = angle, size = 2.7,
+    data = data.frame("label" = "\u00A9 Fraunhofer IBP", stringsAsFactors = F), mapping =
+      ggplot2::aes(label = label, x = structure(x_pos*Inf, class = "Date"), y = y_pos * Inf), angle = angle, size = 2.7,
     hjust = hjust, vjust = vjust, fontface = "bold", ...
   )
 }

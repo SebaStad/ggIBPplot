@@ -1,9 +1,9 @@
 Package: ggIBPplot
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Title: Provides gg_themes and scales for Fraunhofer IBP CI
+Version: 0.1.1
+Author: Sebastian Stadler
+Maintainer: Sebastian Stadler <Sebastian.Stadler@ibp.fraunhofer.de>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: CC0
@@ -11,5 +11,6 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     ggplot2,
-    prismatic
-RoxygenNote: 7.1.0
+    prismatic,
+    scales
+RoxygenNote: 7.0.2
