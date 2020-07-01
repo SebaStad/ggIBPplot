@@ -12,5 +12,6 @@ LazyData: true
 Imports: 
     ggplot2,
     prismatic,
-    scales
+    scales,
+    extrafont
 RoxygenNote: 7.0.2

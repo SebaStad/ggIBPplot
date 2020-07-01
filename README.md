@@ -8,11 +8,13 @@
 <!-- badges: end -->
 
 Stellt ein theme\_ibp für ggplot zur Vefügung. Zusätzlich einige
-`scale_*` Funktionen mit Farben aus der CI vom Fraunhofer IBP.
+`scale_*` Funktionen mit Farben aus der CI vom Fraunhofer IBP. Außerdem
+eine kurze Einleitung, wie man die Fraunhofer Schriftart \``Frutiger` in
+R importiert und dann in den Plots verwedet.
 
 ## Installation
 
-Gibts bisher nur manual. Eventuell von Github über;
+Bisher nur über Github
 
 ``` r
 devtools::install_github("SebaStad/ggIBPplot")
@@ -20,7 +22,8 @@ devtools::install_github("SebaStad/ggIBPplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Hier einige Beispiele, welche Bibliotheken man benötigt und wie man die
+Funktionen verwenden kann.
 
 ``` r
 # remotes::install_github("allisonhorst/palmerpenguins")
@@ -31,6 +34,14 @@ library(scales)
 #> Warning: package 'scales' was built under R version 3.6.2
 library(prismatic)
 #> Warning: package 'prismatic' was built under R version 3.6.2
+
+# Wie bekommt man Schriftarten in R? über extrafont!
+library(extrafont)
+# extrafont::font_import()
+# Dieser Befehl importiert ALLE Schriftarten, die in Windows verfügbar sind nach R (dauert ca 10 min)! Auf den Fraunhofer Laptops sind die Frutiger Schriftarten in Windows vorhanden, daher auch verwendbar.
+
+# Um diese zu nutzen muss man diese dann noch laden:
+# extrafont::loadfonts()
 ## basic example code
 palmerpenguins::penguins %>% 
   na.exclude() %>% 
@@ -49,9 +60,6 @@ ggplot(data = ., aes(x=species)) +
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
-
-#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
-#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
@@ -63,7 +71,7 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12) +
+  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12, ibp_family = "Frutiger LT Com 55 Roman") +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
@@ -72,9 +80,63 @@ ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
 }
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 ```
 
-<img src="man/figures/README-example-2.png" width="100%" />
+<img src="man/figures/README-example-2.png" width="100%" /> Hat man die
+Schriftart, die man verwenden möchte nicht installiert, passiert
+folgendes:
+
+``` r
+palmerpenguins::penguins %>% 
+  na.exclude() %>% 
+{
+ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour=species, shape = sex)) +
+  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12, ibp_family = "Testfont that doesnt exist") +
+  scale_x_ibp_cont() +
+  scale_y_ibp_cont() +
+  scale_colour_ibp() +
+  geom_fraunhofer_label() +
+  coord_fixed()
+}
+#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+#> Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+```
+
+<img src="man/figures/README-bad code-1.png" width="100%" />
 
 Die Linien für die “Grid”-Quadrate sind abhängig von den Daten der X und
 Y Achse, sowie der Aspekt-Ratio des Plots. Standardmäßig produziert
@@ -90,7 +152,7 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5) +
+  theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5, ibp_family = "Felix Titling") +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +

@@ -11,10 +11,11 @@
 #' @export
 #'
 #' @examples
-geom_fraunhofer_label <- function(..., angle = 90, hjust = -0.05, vjust = -0.5, x_pos = 1, y_pos = -1) {
+geom_fraunhofer_label <- function(..., angle = 90, hjust = -0.05, vjust = -0.5, x_pos = 1, y_pos = -1,
+                                  face = "plain", font = "Frutiger 45 Light") {
   ggplot2::geom_text(
     data = data.frame("label" = "\u00A9 Fraunhofer IBP", stringsAsFactors = F),
     ggplot2::aes(label = label, x = x_pos * Inf, y = y_pos * Inf), angle = angle, size = 2.7,
-    hjust = hjust, vjust = vjust, fontface = "bold", ...
+    hjust = hjust, vjust = vjust, fontface = face, family = font, ...
   )
 }

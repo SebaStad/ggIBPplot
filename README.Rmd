@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(extrafont)
+loadfonts()
 ```
 
 # ggIBPplot
@@ -18,11 +20,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Stellt ein theme_ibp für ggplot zur Vefügung. Zusätzlich einige ```scale_*``` Funktionen mit Farben aus der CI vom Fraunhofer IBP.
+Stellt ein theme_ibp für ggplot zur Vefügung. Zusätzlich einige ```scale_*``` Funktionen mit Farben aus der CI vom Fraunhofer IBP. Außerdem eine kurze Einleitung, wie man die Fraunhofer Schriftart ````Frutiger``` in R importiert und dann in den Plots verwedet.
 
 ## Installation
 
-Gibts bisher nur manual. Eventuell von Github über;
+Bisher nur über Github
 
 ``` r
 devtools::install_github("SebaStad/ggIBPplot")
@@ -30,7 +32,7 @@ devtools::install_github("SebaStad/ggIBPplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Hier einige Beispiele, welche Bibliotheken man benötigt und wie man die Funktionen verwenden kann. 
 
 ```{r example}
 # remotes::install_github("allisonhorst/palmerpenguins")
@@ -39,6 +41,14 @@ library(ggIBPplot)
 library(magrittr)
 library(scales)
 library(prismatic)
+
+# Wie bekommt man Schriftarten in R? über extrafont!
+library(extrafont)
+# extrafont::font_import()
+# Dieser Befehl importiert ALLE Schriftarten, die in Windows verfügbar sind nach R (dauert ca 10 min)! Auf den Fraunhofer Laptops sind die Frutiger Schriftarten in Windows vorhanden, daher auch verwendbar.
+
+# Um diese zu nutzen muss man diese dann noch laden:
+# extrafont::loadfonts()
 ## basic example code
 palmerpenguins::penguins %>% 
   na.exclude() %>% 
@@ -57,7 +67,23 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12) +
+  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12, ibp_family = "Frutiger LT Com 55 Roman") +
+  scale_x_ibp_cont() +
+  scale_y_ibp_cont() +
+  scale_colour_ibp() +
+  geom_fraunhofer_label() +
+  coord_fixed()
+}
+
+```
+Hat man die Schriftart, die man verwenden möchte nicht installiert, passiert folgendes:
+```{r bad code}
+palmerpenguins::penguins %>% 
+  na.exclude() %>% 
+{
+ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(colour=species, shape = sex)) +
+  theme_ibp(y_pos_leg = 0.7, x_pos_leg = 0.12, ibp_family = "Testfont that doesnt exist") +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
@@ -67,6 +93,8 @@ ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
 
 ```
 
+
+
 Die Linien für die "Grid"-Quadrate sind abhängig von den Daten der X und Y Achse, sowie der Aspekt-Ratio des Plots. Standardmäßig produziert ```scale_x_ibp_cont``` 7 Linien (+ Rand), sowie ```scale_y_ibp_cont``` 5 Linien (+Rand) und besitzen dabei eine Aspekt-Ratio von 5.5/8. Je nach Range der Daten müssen diese Werte manual angepasst werden. Eine automatische Lösung wäre sicher wünschenswert, aber wohl auch aufwendiger. ```coord_fixed``` ist auch notwendig.
 
 ```{r another}
@@ -75,7 +103,7 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5) +
+  theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5, ibp_family = "Felix Titling") +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
