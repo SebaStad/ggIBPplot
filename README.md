@@ -232,7 +232,8 @@ ggplot(dat2 , aes(y = rndvalue, x = date)) +
   # und Gleichzeitig geom_fraunhofer_label_date verweden hab.
   theme_ibp(aspect = 5/8.5) + 
   scale_x_ibp_datetime(n = 8) +
-  scale_y_ibp_cont() +
+  # leading rundet die Grenzen der Achse!
+  scale_y_ibp_cont(leading = 2) +
   scale_colour_ibp(values = ibp_cols$all[4:5]) +
   geom_fraunhofer_label_datetime() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
