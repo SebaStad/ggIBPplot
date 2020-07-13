@@ -253,7 +253,24 @@ ggplot(dat2 , aes(y = rndvalue, x = date)) +
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 ```
 
-<img src="man/figures/README-ts-2.png" width="100%" />
+<img src="man/figures/README-ts-2.png" width="100%" /> Es gibt auch ein
+paar wrapper für die gängigsten Funktionen:
+
+``` r
+ggplot(dat2 , aes(y = rndvalue, x = date)) + 
+  geom_line(aes(color = ts)) +
+  gg_ibp_datetime(n_x = 8) +
+  scale_colour_ibp(values = ibp_cols$all[4:5]) +
+  geom_fraunhofer_label_datetime() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+
+#> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
+#> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
+```
+
+<img src="man/figures/README-wrapper-1.png" width="100%" />
 
 Beeinhaltet auch einige Farben aus der IBP CI, sowie die Farbskalen von
 Matthias aus dem Base `IBPplot` package. `ppoint` Sind die Farben aus

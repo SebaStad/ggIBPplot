@@ -10,7 +10,9 @@ geom_fraunhofer_label_datetime(
   hjust = -0.05,
   vjust = -0.5,
   x_pos = 1,
-  y_pos = -1
+  y_pos = -1,
+  face = "plain",
+  font = "Frutiger 45 Light"
 )
 }
 \arguments{

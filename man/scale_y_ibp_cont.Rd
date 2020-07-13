@@ -4,7 +4,13 @@
 \alias{scale_y_ibp_cont}
 \title{Title}
 \usage{
-scale_y_ibp_cont(n = 5, limits = NULL, remove_border_val = FALSE, ...)
+scale_y_ibp_cont(
+  n = 5,
+  limits = NULL,
+  remove_border_val = FALSE,
+  leading = 2,
+  ...
+)
 }
 \arguments{
 \item{n}{Anzahl von Major Gridlines}

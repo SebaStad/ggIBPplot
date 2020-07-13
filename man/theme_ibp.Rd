@@ -11,7 +11,8 @@ theme_ibp(
   base_rect_size = base_size/170,
   x_pos_leg = 0.1,
   y_pos_leg = 0.85,
-  aspect = 5.5/8
+  face = "plain",
+  ibp_family = "Frutiger 45 Light"
 )
 }
 \arguments{
@@ -26,6 +27,10 @@ theme_ibp(
 \item{x_pos_leg}{X-position der Legende. Standard links oben, Werte von 0 (min(x)) bis 1 (max(x))}
 
 \item{y_pos_leg}{Y-position der Legende. Standard links oben, Werte von 0 (min(y)) bis 1 (max(y))}
+
+\item{aspect}{Aspect ratio. Sollte ungefähr ny/nx sein}
+
+\item{font}{Schriftart. Standard ist Frutiger 45 Light, durch die Bibliothek extrafont!}
 }
 \value{
 
