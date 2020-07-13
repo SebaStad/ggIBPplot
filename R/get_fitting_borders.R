@@ -18,9 +18,9 @@ get_fitting_borders <- function(value, direction = 1, leading = 1){
 
 
   if(abs(value)>1){
-    if(nchar(value)-1 <= leading){
-      leading <- nchar(value) - 1
-    }
+    #if(nchar(value)-1 <= leading){
+    #  leading <- nchar(value) - 1
+    #}
   var1 <- value/(10**(nchar(round(value,0))-leading))
     if(direction> 0 ){
       border <- ceiling(var1)*(10**(nchar(round(value,0))-leading))

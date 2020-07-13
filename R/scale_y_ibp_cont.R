@@ -13,7 +13,8 @@ scale_y_ibp_cont <- function(n = 5, limits = NULL, remove_border_val = FALSE,
                              leading = 2,...) {
   if (is.null(limits)) {
     ggplot2::scale_y_continuous(breaks = equal_breaks(n = n, s = 0,
-                                                      remove_border_val = remove_border_val),
+                                                      remove_border_val = remove_border_val,
+                                                      leading = leading),
                                 limits = equal_breaks_limits(n, leading),
                                 expand = c(0, 0), ...)
   } else {
