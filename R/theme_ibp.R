@@ -19,7 +19,7 @@ theme_ibp <- function(base_size = 11,
                       base_line_size = base_size / 170,
                       base_rect_size = base_size / 170,
                       x_pos_leg = 0.1, y_pos_leg = 0.85,
-                      aspect = 5.5 / 8,
+                    #  aspect = 5.5 / 8,
                       face = "plain",
                       ibp_family = "Frutiger 45 Light" ) {
   ggplot2::theme_minimal(
@@ -56,7 +56,7 @@ theme_ibp <- function(base_size = 11,
       legend.text = ggplot2::element_text(face = face, rel(0.9)),
       legend.position = c(x_pos_leg, y_pos_leg),
       legend.background = ggplot2::element_rect(colour = "white"),
-      aspect.ratio = aspect,
+  #    aspect.ratio = aspect,
 
       complete = TRUE
     )

@@ -76,7 +76,7 @@ ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
   geom_fraunhofer_label() +
-  coord_fixed()
+  coord_ibp_cartesian()
 }
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
@@ -100,7 +100,7 @@ ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
   geom_fraunhofer_label() +
-  coord_fixed()
+  coord_ibp_cartesian()
 }
 #> Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)):
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
@@ -139,12 +139,23 @@ ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
 <img src="man/figures/README-bad code-1.png" width="100%" />
 
 Die Linien für die “Grid”-Quadrate sind abhängig von den Daten der X und
-Y Achse, sowie der Aspekt-Ratio des Plots. Standardmäßig produziert
-`scale_x_ibp_cont` 7 Linien (+ Rand), sowie `scale_y_ibp_cont` 5 Linien
-(+Rand) und besitzen dabei eine Aspekt-Ratio von 5.5/8. Je nach Range
-der Daten müssen diese Werte manual angepasst werden. Eine automatische
-Lösung wäre sicher wünschenswert, aber wohl auch aufwendiger.
-`coord_fixed` ist auch notwendig.
+Y Achse, sowie der Aspekt-Ratio des Plots. Es gibt jetzt für kartesische
+Koordinaten nun die Funktion `coord_ibp_cartesian()`, die die
+Aspekt-Ratio automatisch korrekt setzt. Dabei wird folgende
+Formel/Funktion verwendet:
+
+``` r
+                    aspect = function(self, ranges) {
+                      d_x = diff(ranges$x.major_source)[1]
+                      d_y = diff(ranges$y.major_source)[1]
+
+                      (d_x * diff(ranges$y.range)) / (d_y * diff(ranges$x.range))
+                    }
+```
+
+Gleichzeitig ersetzt es das bisher benötigte `coord_ibp_cartesian()`,
+indem es sonst die gleichen Funktionen hat. Außerdem ist es nicht mehr
+nötig, in `theme_ibp` die Aspekt-Ratio anzugeben\!
 
 ``` r
 palmerpenguins::penguins %>% 
@@ -152,12 +163,12 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.7, aspect = 5/7.5, ibp_family = "Felix Titling") +
+  theme_ibp(y_pos_leg = 0.7,  ibp_family = "Felix Titling") +
   scale_x_ibp_cont() +
   scale_y_ibp_cont() +
   scale_colour_ibp() +
   geom_fraunhofer_label() +
-  coord_fixed()
+  coord_ibp_cartesian()
 }
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
@@ -176,12 +187,12 @@ palmerpenguins::penguins %>%
 {
 ggplot(data = ., aes(x=bill_length_mm, y = bill_depth_mm)) +
   geom_point(aes(colour=species, shape = sex)) +
-  theme_ibp(y_pos_leg = 0.65, aspect = 5/9.5) +
+  theme_ibp(y_pos_leg = 0.65) +
   scale_x_ibp_cont(limits = c(32,60), n = 8) +
   scale_y_ibp_cont(limits = c(12.5,22)) +
   scale_colour_ibp(values = ibp_cols$old[4:6]) +
   geom_fraunhofer_label() +
-  coord_fixed()
+  coord_ibp_cartesian()
 }
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
@@ -207,7 +218,7 @@ ggplot(dat , aes(y = rndvalue, x = date)) +
   scale_y_ibp_cont() +
   scale_colour_ibp(values = ibp_cols$all[4:5]) +
   geom_fraunhofer_label_date() +
-  coord_fixed() 
+  coord_ibp_cartesian() 
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 
@@ -230,14 +241,14 @@ ggplot(dat2 , aes(y = rndvalue, x = date)) +
   # Wichtig:
   # Ich selber habe hier Fehlermeldungen bekommen, wenn ich color = ts in den ggplot aes gesteckt habe
   # und Gleichzeitig geom_fraunhofer_label_date verweden hab.
-  theme_ibp(aspect = 5/8.5) + 
+  theme_ibp() + 
   scale_x_ibp_datetime(n = 8) +
   # leading rundet die Grenzen der Achse!
   scale_y_ibp_cont(leading = 2) +
   scale_colour_ibp(values = ibp_cols$all[4:5]) +
   geom_fraunhofer_label_datetime() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  coord_fixed() 
+  coord_ibp_cartesian() 
 #> Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, :
 #> Zeichensatzfamilie in der Windows Zeichensatzdatenbank nicht gefunden
 ```
