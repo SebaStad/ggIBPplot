@@ -1,8 +1,8 @@
 Package: ggIBPplot
 Type: Package
 Title: Provides gg_themes and scales for Fraunhofer IBP CI
-Version: 0.1.1
-Author: Sebastian Stadler
+Version: 0.2.0
+Author: Sebastian Stadler, Matthias Winkler
 Maintainer: Sebastian Stadler <Sebastian.Stadler@ibp.fraunhofer.de>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
