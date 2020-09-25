@@ -37,3 +37,41 @@ CoordIBP <- ggplot2::ggproto("CoordIBP", ggplot2::CoordCartesian,
                     }
 )
 
+#' @rdname ggplot2-ggproto
+#' @format NULL
+#' @usage NULL
+#' @export
+CoordIBP_flip <- ggplot2::ggproto("CoordIBP", ggplot2::CoordFlip,
+                                  is_free = function() FALSE,
+
+
+                                  aspect = function(self, ranges) {
+                                    d_x = diff(ranges$x.major_source)[1]
+                                    d_y = diff(ranges$y.major_source)[1]
+
+                                    (d_x * diff(ranges$y.range)) / (d_y * diff(ranges$x.range))
+                                  }
+)
+
+#' Title
+#'
+#' @param ratio
+#' @param xlim
+#' @param ylim
+#' @param expand
+#' @param clip
+#'
+#' @return
+#' @export
+#'
+#' @examples
+coord_ibp_flip <- function(ratio = 1, xlim = NULL, ylim = NULL, expand = TRUE, clip = "on") {
+
+  ggplot2::ggproto(NULL, CoordIBP_flip,
+                   limits = list(x = xlim, y = ylim),
+                   ratio = ratio,
+                   expand = expand,
+                   clip = clip
+  )
+
+}
