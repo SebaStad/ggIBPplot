@@ -30,6 +30,8 @@ get_fitting_borders <- function(value, direction = 1, leading = 1){
       print("Please only use positive or negative values for direction. Round was used")
       border <- round(var1)*(10**(nchar(round(value,0))-leading))
     }
+  } else if(value==0) {
+    border <- 0
   } else {
     var1 <- value*(10**(nchar(value)-2))
     tmp <- get_fitting_borders(var1, direction = direction, leading = leading)
