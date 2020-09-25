@@ -11,7 +11,9 @@ gg_ibp(
   limits_y = NULL,
   font = "Frutiger 45 Light",
   x_pos_leg = 0.1,
-  y_pos_leg = 0.85
+  y_pos_leg = 0.85,
+  leading_x = 2,
+  leading_y = 2
 )
 }
 \arguments{
