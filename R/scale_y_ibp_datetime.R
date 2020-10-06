@@ -1,4 +1,4 @@
-#' Title
+#' asdf
 #'
 #' @param n Anzahl von Major Gridlines
 #' @param limits Vector mir minimal und maximal Wert
@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-scale_x_ibp_datetime <- function(n = 7, limits = NULL, remove_border_val = FALSE, ...) {
+scale_y_ibp_datetime <- function(n = 7, limits = NULL, remove_border_val = FALSE, ...) {
   if (is.null(limits)) {
     ggplot2::scale_y_datetime(breaks = equal_breaks(n = n, s = 0,
                                                     remove_border_val = remove_border_val),

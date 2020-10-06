@@ -23,4 +23,5 @@ scale_x_ibp_datetime <- function(n = 7, limits = NULL, remove_border_val = FALSE
       expand = c(0, 0), limits = limits, ...
     )
   }
+  #
 }
