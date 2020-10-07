@@ -9,7 +9,7 @@
 #' @examples
 show_less_labels <- function(every_n = 2,  formatation = ""){
   function(x){
-    x[!((seq(length(x))-1)%%every_n==0)] <- ""
+    x[!((seq_along(x)+(every_n-1))%%every_n==0)] <- ""
     x
   }
 }
