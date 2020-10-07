@@ -4,7 +4,7 @@
 \alias{show_less_labels}
 \title{Title}
 \usage{
-show_less_labels(every_n = 2, formatation = "")
+show_less_labels(every_n = 2)
 }
 \arguments{
 \item{formatation}{}
