@@ -4,7 +4,9 @@
 \name{ipb_tuer}
 \alias{ipb_tuer}
 \title{Tuerkis Abstufungen von Fraunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_tuer
 }

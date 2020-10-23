@@ -4,7 +4,9 @@
 \name{ipb_cols}
 \alias{ipb_cols}
 \title{Alle Fraunhofer Farben}
-\format{A List with multpiple Prismatic Vectors}
+\format{
+A List with multpiple Prismatic Vectors
+}
 \usage{
 ibp_cols
 }

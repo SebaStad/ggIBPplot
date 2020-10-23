@@ -4,7 +4,9 @@
 \name{ipb_logo}
 \alias{ipb_logo}
 \title{Abstufungen der Fraunhofer Titelfarbe}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_logo
 }

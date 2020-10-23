@@ -4,7 +4,9 @@
 \name{ipb_all}
 \alias{ipb_all}
 \title{Alle CI Farben}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_all
 }

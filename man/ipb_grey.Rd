@@ -4,7 +4,9 @@
 \name{ipb_grey}
 \alias{ipb_grey}
 \title{Grau Abstufungen von Fraunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_grey
 }

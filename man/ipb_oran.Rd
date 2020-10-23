@@ -4,7 +4,9 @@
 \name{ipb_oran}
 \alias{ipb_oran}
 \title{Orange Abstufungen von Fraunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_orang
 }

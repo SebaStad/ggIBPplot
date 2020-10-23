@@ -4,7 +4,9 @@
 \name{ipb_blue}
 \alias{ipb_blue}
 \title{Blau Abstufungen von Faunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_blue
 }

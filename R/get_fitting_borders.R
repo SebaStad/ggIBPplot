@@ -17,7 +17,7 @@ get_fitting_borders <- function(value, direction = 1, leading = 1){
   } else {
 
 
-  if(abs(value)>1){
+  if(abs(value)>=1){
     #if(nchar(value)-1 <= leading){
     #  leading <- nchar(value) - 1
     #}

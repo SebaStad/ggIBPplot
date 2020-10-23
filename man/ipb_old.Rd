@@ -4,7 +4,9 @@
 \name{ipb_old}
 \alias{ipb_old}
 \title{Alte CI von Faunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_old
 }

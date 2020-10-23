@@ -4,7 +4,9 @@
 \name{ipb_ppoint}
 \alias{ipb_ppoint}
 \title{Alle CI Farben nach der aktuellen PowerPoint Vorlage}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_ppoint
 }

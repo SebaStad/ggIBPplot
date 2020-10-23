@@ -4,7 +4,9 @@
 \name{ipb_green}
 \alias{ipb_green}
 \title{Grün Abstufungen von Fraunhofer}
-\format{A prismatic vector}
+\format{
+A prismatic vector
+}
 \usage{
 ibp_green
 }
