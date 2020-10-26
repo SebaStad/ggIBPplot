@@ -6,7 +6,7 @@ Author: Sebastian Stadler, Matthias Winkler
 Maintainer: Sebastian Stadler <Sebastian.Stadler@ibp.fraunhofer.de>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: CC0
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
