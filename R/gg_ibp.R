@@ -13,10 +13,10 @@
 #'
 #' @examples
 gg_ibp <- function(n_x = 7, n_y = 5, limits_x = NULL, limits_y = NULL,
-                   font = "Frutiger 45 Light", x_pos_leg = 0.1, y_pos_leg = 0.85,
+                   font = "Frutiger 45 Light",
                    leading_x = 2, leading_y = 2){
   list(
-    theme_ibp(x_pos_leg = x_pos_leg, y_pos_leg = y_pos_leg, ibp_family = font) ,
+    theme_ibp(ibp_family = font) ,
     scale_x_ibp_cont(limits = limits_x, n = n_x, leading = leading_x) ,
     scale_y_ibp_cont(limits = limits_y, n = n_y, leading = leading_y) ,
     coord_ibp_cartesian()
